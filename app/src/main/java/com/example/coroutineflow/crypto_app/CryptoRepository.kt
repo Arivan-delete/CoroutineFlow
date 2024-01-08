@@ -16,6 +16,7 @@ object CryptoRepository {
     fun getCurrencyList(): Flow<List<Currency>> = flow  {
         delay(3000)
         generateCurrencyList()
+        emit(currencyList.toList())
         refreshEvents.collect {
             delay(3000)
             generateCurrencyList()
